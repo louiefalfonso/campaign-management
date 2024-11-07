@@ -12,7 +12,8 @@ const App = () => {
   return (
     <Provider store={store}>
       <div>
-        <CampaignForm />
+        {/*<CampaignForm / >*/}
+
         <CampaignFilter setFilter={setFilter} />
         <CampaignList filter={filter} />
       </div>

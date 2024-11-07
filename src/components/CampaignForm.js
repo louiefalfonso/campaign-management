@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCampaign } from "../redux/campaignSlice";
+import "../styles/CampaignForm.css";
 
 const CampaignForm = () => {
   const [campaign, setCampaign] = useState({

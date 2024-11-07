@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampaigns, deleteCampaign } from "../redux/campaignSlice";
+import { fetchCampaigns } from "../redux/campaignSlice";
+import { campaignData } from "../data/campaignData";
+import "../styles/CampaignList.css";
 
-const CampaignList = () => {
+const CampaignList = ({ filter }) => {
   const dispatch = useDispatch();
   const campaigns = useSelector((state) => state.campaigns.list);
   const status = useSelector((state) => state.campaigns.status);
@@ -11,6 +13,14 @@ const CampaignList = () => {
     if (status === "idle") dispatch(fetchCampaigns());
   }, [status, dispatch]);
 
+  const filteredCampaigns = campaigns.filter((campaign) => {
+    if (filter.name && campaign.name !== filter.name) return false;
+    if (filter.externalCode && campaign.externalCode !== filter.externalCode)
+      return false;
+    return true;
+  });
+  
+
   return (
     <div>
       <h2>Campaigns</h2>
@@ -18,28 +28,18 @@ const CampaignList = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Type</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>External Code</th>
+            <th>Description</th>
+            <th>Last Modified Date</th>
           </tr>
         </thead>
         <tbody>
-          {campaigns.map((campaign) => (
+          {filteredCampaigns.map((campaign) => (
             <tr key={campaign.id}>
               <td>{campaign.name}</td>
-              <td>{campaign.type}</td>
-              <td>{campaign.startDate}</td>
-              <td>{campaign.endDate}</td>
-              <td>{campaign.status}</td>
-              <td>
-                <button onClick={() => dispatch(deleteCampaign(campaign.id))}>
-                  Delete
-                </button>
-                <button>Edit</button>
-                
-              </td>
+              <td>{campaign.externalCode}</td>
+              <td>{campaign.description}</td>
+              <td>{campaign.lastModifiedDate}</td>
             </tr>
           ))}
         </tbody>
