@@ -12,7 +12,6 @@ const CampaignsList = ({ campaigns }) => {
     if (campaignsList.status === "idle") dispatch(fetchCampaigns());
   }, [campaignsList.status, dispatch]);
 
-
   return (
     <>
       <div className="flex flex-col gap-4 min-h-[calc(100vh-212px)]">

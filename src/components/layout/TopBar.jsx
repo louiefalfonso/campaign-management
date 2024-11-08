@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+// eslint-disable-next-line react/prop-types
 const TopBar = ({ toggleSidebarCollapse }) => {
   return (
     <>
