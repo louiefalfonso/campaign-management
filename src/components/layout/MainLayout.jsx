@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Sidebar from "./SideBar";
 import Footer from "./Footer";
+import Topbar from "./TopBar";
 
 const MainLayout = ({ children }) => {
 
@@ -31,6 +32,7 @@ const MainLayout = ({ children }) => {
           <div className="flex mx-auto main-container">
             <Sidebar isSidebarSize={isSidebarSize} />
             <div className="flex-1 main-content">
+              <Topbar toggleSidebarCollapse={toggleSidebarCollapse} />
               <div className="h-[calc(100vh-60px)] relative overflow-y-auto overflow-x-hidden p-4 space-y-4 detached-content">
                 {children}
                 <Footer />

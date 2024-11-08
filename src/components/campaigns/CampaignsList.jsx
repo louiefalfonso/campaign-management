@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCampaigns } from "../../redux/campaignSlice.js";
 
+// eslint-disable-next-line react/prop-types
 const CampaignsList = ({ campaigns }) => {
 
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const CampaignsList = ({ campaigns }) => {
               </thead>
               <tbody className="text-center">
                 {campaigns &&
+                  // eslint-disable-next-line react/prop-types
                   campaigns.map((campaign) => (
                     <tr
                       key={campaign.id}

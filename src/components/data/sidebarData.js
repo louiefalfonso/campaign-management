@@ -1,14 +1,10 @@
 const sidebarData = [
   {
     id: "campaigns",
-    label: "Campaign Lists Data",
-    link: "/campaigns",
+    label: "Context Lists",
+    link: "/",
   },
-  {
-    id: "campaigns",
-    label: "Modify Campaign Lists",
-    link: "/campaigns",
-  },
+  
 ];
 
 export { sidebarData };
